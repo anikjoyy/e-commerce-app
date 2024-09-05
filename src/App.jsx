@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
@@ -10,10 +10,15 @@ import Blog from './pages/Blog';
 import Custom from './pages/Custom';
 import Login from './pages/Login';
 import PlaceOrder from './pages/PlaceOrder';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const location = useLocation();
+
   return (
     <>
+      <ToastContainer />
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -25,7 +30,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/place-order' element={<PlaceOrder />} />
       </Routes>
-      <Footer />
+      {location.pathname !== '/login' && <Footer />}
     </>
   );
 }

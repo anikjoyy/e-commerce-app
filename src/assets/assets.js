@@ -7,10 +7,13 @@ import p_img3 from './p_3.png';
 import p_img4 from './p_4.png';
 import p_img5 from './p_5.png';
 import p_img6 from './p_6.png';
+import login_cover from './login_cover.png';
+
 export const assets = {
   cart_icon,
   dropdown_icon,
   profile_icon,
+  login_cover,
 };
 
 export const products = [
@@ -21,7 +24,7 @@ export const products = [
       'It has a backrest that can be tilted back, and often a footrest extended',
     price: 299,
     image: [p_img1],
-    category: 'Rocking Chair',
+    category: 'RockingChair',
     date: 1716634345448,
     bestseller: true,
   },
@@ -32,7 +35,7 @@ export const products = [
       'High Back Rocking Side Pocket Portable Folding Outdoor Camping Chairs',
     price: 59,
     image: [p_img2],
-    category: 'Rocking Chair',
+    category: 'RockingChair',
     date: 1716234545448,
     bestseller: true,
   },
@@ -43,7 +46,7 @@ export const products = [
       'It has a backrest that can be tilted back, and often a footrest extended',
     price: 299,
     image: [p_img3],
-    category: 'Rocking Chair',
+    category: 'RockingChair',
     date: 1716621345448,
     bestseller: true,
   },
@@ -54,7 +57,7 @@ export const products = [
       'Lightweight, easy to clean, sturdy, safe and stable. Non-slip legs',
     price: 299,
     image: [p_img4],
-    category: 'Rocking Chair',
+    category: 'RockingChair',
     date: 1716622345448,
     bestseller: true,
   },
@@ -65,7 +68,7 @@ export const products = [
       'It has a backrest that can be tilted back, and often a footrest extended',
     price: 165,
     image: [p_img5],
-    category: 'Rocking Chair',
+    category: 'RockingChair',
     date: 1716623423448,
     bestseller: true,
   },
@@ -76,7 +79,7 @@ export const products = [
       'A seat, especially for one person, usually having four legs for support.',
     price: 299,
     image: [p_img6],
-    category: 'Rocking Chair',
+    category: 'RockingChair',
     date: 1716623423448,
     bestseller: true,
   },
