@@ -16,7 +16,7 @@ const Collection = () => {
       {/* right side  */}
       <div className='flex-1'>
         {/* map product  */}
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 gap-y-6'>
+        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 gap-y-6'>
           {products.map((item, index) => (
             <ProductItem
               key={index}

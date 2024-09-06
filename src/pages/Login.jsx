@@ -1,20 +1,32 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { assets } from '../assets/assets';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { UserContext } from '../context/UserContext';
 
 const Login = () => {
   const [currentState, setCurrentState] = useState('Login');
   const [showPassword, setShowPassword] = useState(false);
+  const [firstName, setFirstName] = useState(''); // State for first name
+  const [lastName, setLastName] = useState(''); // State for last name
+  const [email, setEmail] = useState(''); // State for email
+  const [password, setPassword] = useState(''); // State for password
+  const { login, signup } = useContext(UserContext);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
+
+    if (currentState === 'Login') {
+      login({ email, password });
+    } else {
+      signup(firstName, lastName, email, password);
+    }
   };
 
   return (
-    <div className='flex flex-row justify-evenly items-center pt-10'>
+    <div className='flex flex-col-reverse sm:flex-row justify-evenly items-center pt-10'>
       {/* form div  */}
-      <div className=' pb-10'>
+      <div className=' pb-10 mt-10'>
         {currentState === 'Login' ? (
           <div>
             <h1 className='font-bold'>Welcome Back</h1>
@@ -49,12 +61,16 @@ const Login = () => {
                 type='text'
                 className='w-full px-3 py-2 border border-gray-800'
                 placeholder='First Name'
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 required
               />
               <input
                 type='text'
                 className='w-full px-3 py-2 border border-gray-800'
                 placeholder='Last Name'
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
                 required
               />
             </div>
@@ -64,6 +80,8 @@ const Login = () => {
             type='email'
             className='w-full px-3 py-2 border border-gray-800'
             placeholder='Email Address'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
 
@@ -72,12 +90,14 @@ const Login = () => {
               type={showPassword ? 'text' : 'password'}
               className='w-full px-3 py-2 border border-gray-800'
               placeholder='Password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <FontAwesomeIcon
               icon={showPassword ? faEyeSlash : faEye}
               className='absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer'
-              onClick={() => setShowPassword(!showPassword)} // Toggle visibility state
+              onClick={() => setShowPassword(!showPassword)}
             />
           </div>
 
