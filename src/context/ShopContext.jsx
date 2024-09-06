@@ -12,12 +12,13 @@ const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
 
   const addToCart = async (itemId) => {
-    let cartData = { ...cartItems }; //to copy from object
+    let cartData = { ...cartItems };
     if (cartData[itemId]) {
       cartData[itemId] += 1;
       toast.success('Product Added');
     } else {
       cartData[itemId] = 1;
+      toast.success('Product Added');
     }
     setCartItems(cartData);
   };
@@ -37,6 +38,7 @@ const ShopContextProvider = (props) => {
     } else {
       delete cartData[itemId];
     }
+    setCartItems(cartData);
   };
 
   const getCartAmount = () => {
@@ -54,6 +56,7 @@ const ShopContextProvider = (props) => {
     products,
     currency,
     delivery_fee,
+    cartItems,
     navigate,
     addToCart,
     getCartAmount,
